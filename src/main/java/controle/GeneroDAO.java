@@ -25,7 +25,9 @@ public class GeneroDAO {
 				PreparedStatement ps = con.prepareStatement(query);
 				ResultSet rs = ps.executeQuery();
 				while(rs.next()) {
+					int idjogo = rs.getInt("idjogo");
 					
+					String genero = rs.getString("genero");
 				}
 				
 		 }catch (SQLException e) {
