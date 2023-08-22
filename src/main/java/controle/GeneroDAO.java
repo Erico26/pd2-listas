@@ -71,5 +71,51 @@ public class GeneroDAO {
 		
 		return false;
 	}
+		
+	public boolean excluir(Genero p) {
+		Conexao c = Conexao.getInstancia();
+		Connection con = c.conectar();
+		
+		String query = "DELETE FROM Genero WHERE idjogo = ?";
+			
+		try {
+			PreparedStatement ps = con.prepareStatement(query);
+			
+			ps.setInt(1, p.getIdjogo());
+			ps.executeUpdate();
+			c.fecharConexao();
+			return true;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
 	
+	
+	public boolean atualizar(Genero p) {
+		Conexao c = Conexao.getInstancia();
+		Connection con = c.conectar();
+
+		String query = "UPDATE Genero SET" + "nome_jogo = ? WHERE nome_jogo";
+		
+		try {
+			PreparedStatement ps = con.prepareStatement(query);
+			
+			ps.setString(1, p.getNomejogo());
+			ps.setInt(1, p.getIdjogo());
+			ps.executeUpdate();
+			c.fecharConexao();
+			return true;
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return false;
+		
+	}
 }
