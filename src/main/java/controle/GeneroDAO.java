@@ -99,7 +99,7 @@ public class GeneroDAO {
 		Conexao c = Conexao.getInstancia();
 		Connection con = c.conectar();
 
-		String query = "UPDATE Genero SET" + "nome_jogo = ? WHERE nome_jogo";
+		String query = "UPDATE Genero SET" + "nomejogo = ? WHERE nomejogo";
 		
 		try {
 			PreparedStatement ps = con.prepareStatement(query);
